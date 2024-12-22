@@ -72,7 +72,7 @@ const NovaPro = () => {
           <div className="flex justify-between h-24 items-center">
             <div className="flex items-center">
               <span className="text-2xl font-semibold tracking-widest">
-                NOVAPRO<span className="text-violet-400">°</span>
+                SOORAPRO<span className="text-violet-400">°</span>
               </span>
             </div>
             

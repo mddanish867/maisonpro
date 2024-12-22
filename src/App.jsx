@@ -1,3 +1,4 @@
+import Login from "./components/auth/Login"
 import LandingPage from "./components/home/LandingPage"
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
      <LandingPage/>
+     <Login/>
     </>
   )
 }
