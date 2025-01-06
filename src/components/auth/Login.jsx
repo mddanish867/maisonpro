@@ -61,7 +61,7 @@ const Login = () => {
             />
           </div>
 
-          <button className="group w-full relative px-12 py-4 bg-violet-400 text-black text-sm tracking-wider hover:bg-violet-300 transition-all duration-300">
+          <button className="group w-full relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-all duration-300">
                 LOGIN
                 <ArrowUpRight className="inline-block ml-2 w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
               </button>

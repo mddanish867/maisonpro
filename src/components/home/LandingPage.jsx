@@ -71,7 +71,7 @@ const NovaPro = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between h-24 items-center">
             <div className="flex items-center">
-              <span className="text-2xl font-semibold tracking-widest">
+              <span className="text-2xl font-semibold tracking-widest bg-gradient-to-r from-purple-400 to-yellow-300 bg-clip-text text-transparent">
                 SOORAPRO<span className="text-violet-400">°</span>
               </span>
             </div>
@@ -84,14 +84,14 @@ const NovaPro = () => {
                   className="text-sm font-extralight tracking-widest hover:text-violet-400 transition-colors duration-300 relative group"
                 >
                   {item}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-violet-400 transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-purple-400 to-yellow-300 transition-all duration-300 group-hover:w-full" />
                 </a>
               ))}
               <button className="relative px-8 py-3 overflow-hidden group bg-transparent">
                 <span className="relative z-10 text-sm tracking-widest font-extralight transition-colors duration-300 group-hover:text-black">
                   GET ACCESS
                 </span>
-                <span className="absolute inset-0 bg-violet-400 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+                <span className="absolute inset-0 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
               </button>
             </div>
 
@@ -130,7 +130,7 @@ const NovaPro = () => {
         <div className="max-w-7xl mx-auto px-6 relative">
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-block mb-8 px-4 py-2 border border-white/10 rounded-full backdrop-blur-sm">
-              <span className="text-sm font-extralight tracking-widest">
+              <span className="text-sm font-extralight tracking-widest bg-gradient-to-r from-purple-400 to-yellow-300 bg-clip-text text-transparent">
                 VERSION 2.0 NOW AVAILABLE
               </span>
             </div>
@@ -145,7 +145,7 @@ const NovaPro = () => {
               Designed for visionary leaders and exceptional teams.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <button className="group relative px-12 py-4 bg-violet-400 text-black text-sm tracking-wider hover:bg-violet-300 transition-all duration-300">
+              <button className="group relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-all duration-300">
                 REQUEST DEMO
                 <ArrowUpRight className="inline-block ml-2 w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
               </button>
@@ -245,7 +245,7 @@ const NovaPro = () => {
             <p className="text-gray-400 mb-12 leading-relaxed font-extralight">
               Join the elite circle of organizations transforming their project management capabilities.
             </p>
-            <button className="group relative px-12 py-4 bg-violet-400 text-black text-sm tracking-wider hover:bg-violet-300 transition-all duration-300 inline-flex items-center">
+            <button className="group relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider hover:bg-violet-300 transition-all duration-300 inline-flex items-center">
               BEGIN YOUR JOURNEY
               <ChevronRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
