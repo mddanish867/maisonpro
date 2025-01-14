@@ -1,59 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, } from 'react';
 import { 
-  CheckCircle, BarChart2, Calendar, Users, 
-  ArrowRight, Menu, X, Star, 
-  Shield, Globe, Zap, Clock,
+  BarChart2,    
+  Shield, Globe, Zap, 
   ChevronRight, Award, ArrowUpRight
 } from 'lucide-react';
 
 const NovaPro = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeFeature, setActiveFeature] = useState(0);
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+  
 
-    const handleMouseMove = (e) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 2 - 1,
-        y: (e.clientY / window.innerHeight) * 2 - 1
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
-  const features = [
-    {
-      title: "Executive Dashboard",
-      description: "Sophisticated analytics and insights for strategic decision-making",
-      icon: <BarChart2 className="w-6 h-6 text-violet-400" />
-    },
-    {
-      title: "Global Collaboration",
-      description: "Seamless coordination across teams and time zones",
-      icon: <Globe className="w-6 h-6 text-violet-400" />
-    },
-    {
-      title: "Intelligent Automation",
-      description: "AI-powered workflow optimization and resource allocation",
-      icon: <Zap className="w-6 h-6 text-violet-400" />
-    },
-    {
-      title: "Enterprise Security",
-      description: "Bank-grade security protocols and compliance measures",
-      icon: <Shield className="w-6 h-6 text-violet-400" />
-    }
-  ];
+ 
 
   const metrics = [
     { label: "Enterprise Clients", value: "500+" },
@@ -65,60 +23,7 @@ const NovaPro = () => {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-violet-400 selection:text-black">
       {/* Elegant Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-500 ${
-        scrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent'
-      }`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between h-24 items-center">
-            <div className="flex items-center">
-              <span className="text-2xl font-semibold tracking-widest bg-gradient-to-r from-purple-400 to-yellow-300 bg-clip-text text-transparent">
-                SOORAPRO<span className="text-violet-400">°</span>
-              </span>
-            </div>
-            
-            <div className="hidden md:flex items-center space-x-12">
-              {['FEATURES', 'SOLUTIONS', 'ENTERPRISE'].map((item) => (
-                <a 
-                  key={item}
-                  href={`#${item.toLowerCase()}`} 
-                  className="text-sm font-extralight tracking-widest hover:text-violet-400 transition-colors duration-300 relative group"
-                >
-                  {item}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-purple-400 to-yellow-300 transition-all duration-300 group-hover:w-full" />
-                </a>
-              ))}
-              <button className="relative px-8 py-3 overflow-hidden group bg-transparent">
-                <span className="relative z-10 text-sm tracking-widest font-extralight transition-colors duration-300 group-hover:text-black">
-                  GET ACCESS
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
-              </button>
-            </div>
-
-            <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {isMenuOpen && (
-          <div className="md:hidden bg-black/95 backdrop-blur-xl border-b border-white/5">
-            <div className="px-6 py-8 space-y-6">
-              {['FEATURES', 'SOLUTIONS', 'ENTERPRISE'].map((item) => (
-                <a 
-                  key={item}
-                  href={`#${item.toLowerCase()}`} 
-                  className="block text-sm tracking-widest font-extralight hover:text-violet-400 transition-colors duration-300"
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
+      
 
       {/* Hero Section */}
       <div 
@@ -158,43 +63,7 @@ const NovaPro = () => {
       </div>
 
       {/* Features Section */}
-      <div className="py-32 relative" id="features">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(167,139,250,0.1),transparent_50%)]" />
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-24">
-            <h2 className="text-3xl font-thin tracking-wider mb-4">
-              REFINED CAPABILITIES
-            </h2>
-            <div className="w-24 h-px bg-gradient-to-r from-transparent via-violet-400 to-transparent mx-auto" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className="group cursor-pointer"
-                onMouseEnter={() => setActiveFeature(index)}
-              >
-                <div className={`p-8 border border-white/5 backdrop-blur-sm transition-all duration-500 relative ${
-                  activeFeature === index ? 'bg-white/5' : 'hover:bg-white/5'
-                }`}>
-                  <div className="absolute inset-0 bg-gradient-to-b from-violet-400/0 to-violet-400/0 group-hover:to-violet-400/10 transition-all duration-500" />
-                  <div className="relative">
-                    <div className="flex items-center justify-center mb-6">
-                      {feature.icon}
-                    </div>
-                    <h3 className="text-lg font-extralight tracking-wider mb-4 text-center">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm text-gray-400 text-center leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      
 
       {/* Metrics Section */}
       <div className="py-32 bg-black/30 backdrop-blur-sm border-y border-white/5">
@@ -254,18 +123,7 @@ const NovaPro = () => {
       </div>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/5 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center">
-            <div className="text-2xl font-extralight tracking-widest mb-6">
-              NOVA<span className="text-violet-400">°</span>
-            </div>
-            <div className="text-sm text-gray-400 font-extralight">
-              © {new Date().getFullYear()} NOVA. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
+     
     </div>
   );
 };
