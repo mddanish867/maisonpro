@@ -35,8 +35,8 @@ export default function FeaturesPage() {
   ];
 
   return (
-    <div className="py-32 relative" id="features">
-      <div className="absolute inset-0 bg-[#0A0A0A] text-white selection:bg-violet-400 selection:text-black" />
+    <div className="bg-[#0A0A0A] text-white selection:bg-violet-400 selection:text-black py-32 relative" id="features">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(167,139,250,0.1),transparent_50%)]" />
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
           <h2 className="text-3xl font-thin tracking-wider mb-4">
