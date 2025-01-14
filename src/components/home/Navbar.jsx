@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { 
-   Menu, X, 
+    EllipsisVertical, X, 
   } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 
@@ -68,14 +68,14 @@ const Navbar = () => {
 
             <div className="md:hidden">
               <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMenuOpen ? <span className="w-6 h-6">Esc</span> : <EllipsisVertical className="w-6 h-6" />}
               </button>
             </div>
           </div>
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden bg-black/95 backdrop-blur-xl border-b border-white/5">
+          <div className="md:hidden min-h-screen bg-black/95 backdrop-blur-xl border-b border-white/5">
             <div className="px-6 py-8 space-y-6">
               {['FEATURES', 'SOLUTIONS', 'ENTERPRISE'].map((item) => (
                 <a 
