@@ -13,6 +13,10 @@ import Pricing from "./components/features/PricingPage";
 import LandingPage from "./components/home/LandingPage";
 import Layout from "./components/layout/Layout";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import VerifyAccount from "./components/auth/VerifyAccount";
+import AccountSettings from "./components/auth/AccountSettings";
+import UserProfile from "./components/auth/UserProfile";
+
 function App() {
   return (
     <>
@@ -30,6 +34,10 @@ function App() {
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/verify-account" element={<VerifyAccount />} />
+          <Route path="/account-setting" element={<AccountSettings />} />
+          <Route path="/user-profile" element={<UserProfile />} />
+
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/login-otp" element={<LoginOTP />} />

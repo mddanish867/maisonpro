@@ -1,277 +1,142 @@
-// import { useState } from 'react'
-
-// export default function Register() {
-//   const [formData, setFormData] = useState({
-//     username: '',
-//     email: '',
-//     password: '',
-//     confirmPassword: '',
-//   })
-
-//   const handleChange = (e) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value })
-//   }
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault()
-//     // Handle registration logic here
-//     console.log('Registration data:', formData)
-//   }
-
-//   return (
-//     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-//       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-//         <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
-//         <form onSubmit={handleSubmit} className="space-y-4">
-//           <div>
-//             <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-//               Username
-//             </label>
-//             <input
-//               type="text"
-//               id="username"
-//               name="username"
-//               required
-//               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-//               onChange={handleChange}
-//               value={formData.username}
-//             />
-//           </div>
-//           <div>
-//             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-//               Email
-//             </label>
-//             <input
-//               type="email"
-//               id="email"
-//               name="email"
-//               required
-//               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-//               onChange={handleChange}
-//               value={formData.email}
-//             />
-//           </div>
-//           <div>
-//             <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-//               Password
-//             </label>
-//             <input
-//               type="password"
-//               id="password"
-//               name="password"
-//               required
-//               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-//               onChange={handleChange}
-//               value={formData.password}
-//             />
-//           </div>
-//           <div>
-//             <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-//               Confirm Password
-//             </label>
-//             <input
-//               type="password"
-//               id="confirmPassword"
-//               name="confirmPassword"
-//               required
-//               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-//               onChange={handleChange}
-//               value={formData.confirmPassword}
-//             />
-//           </div>
-//           <button
-//             type="submit"
-//             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-//           >
-//             Register
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   )
-// }
-
-import React, { useState } from 'react';
-import { ArrowLeft, Lock, Mail, Eye, EyeOff, User, Phone } from 'lucide-react';
+import React, { useState } from "react";
+import { ArrowUpRight, Mail, Lock, User, ArrowLeft, Eye, EyeOff } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [step, setStep] = useState(1); // 1: Details, 2: Verification
-  const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
   
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setStep(2);
-    setIsLoading(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const handleVerificationSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setIsLoading(false);
-    // Handle verification success
+    setLoading(true);
+    // Simulate async registration
+    setTimeout(() => {
+      setLoading(false);
+      alert("Registration successful");
+      navigate("/verify-account")
+    }, 2000);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white flex flex-col">
-      {/* Header with Back Button */}
+    <div className="min-h-screen bg-[#0A0A0A] text-white flex flex-col">
       <div className="p-6">
-        <a href="/" className="inline-flex items-center text-sm text-gray-400 hover:text-emerald-400 transition-colors">
+        <a href="/" className="inline-flex items-center text-sm text-gray-400 hover:text-violet-400 transition-colors">
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Home
         </a>
       </div>
 
-      {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-md">
-          {/* Logo */}
-          <div className="text-center mb-8">
-            <span className="text-3xl font-thin tracking-wider">
-              NOVA<span className="text-emerald-400">.</span>
+      <div className="flex-1 flex justify-center items-center px-4">
+        <div className="w-full max-w-md px-8 py-12 border border-white/10 backdrop-blur-md">
+          <h2 className="text-3xl font-thin tracking-wide mb-8 text-center">
+            Create Account
+            <span className="block mt-2 text-violet-400 text-lg font-light">
+              Register for a new account
             </span>
-          </div>
+          </h2>
 
-          {/* Registration Form Container */}
-          <div className="bg-black/30 border border-gray-800 p-8 backdrop-blur-lg">
-            <h2 className="text-2xl font-thin tracking-wider text-center mb-8">
-              {step === 1 ? 'Create Account' : 'Verify Email'}
-            </h2>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="relative">
+              <input
+                type="text"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                placeholder="Full Name"
+                className="w-full px-6 py-4 bg-transparent border border-white/10 rounded-none focus:outline-none focus:ring-1 focus:ring-violet-400 text-sm"
+                required
+              />
+              <User className="absolute right-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+            </div>
 
-            {step === 1 ? (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Full Name Input */}
-                <div className="space-y-2">
-                  <label className="block text-sm tracking-wider text-gray-400">
-                    FULL NAME
-                  </label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
-                    <input
-                      type="text"
-                      className="w-full bg-black/30 border border-gray-800 py-3 pl-12 pr-4 text-white placeholder-gray-500 focus:border-emerald-400 focus:ring-0 focus:outline-none transition-colors"
-                      placeholder="Enter your full name"
-                      required
-                    />
-                  </div>
-                </div>
+            <div className="relative">
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email"
+                className="w-full px-6 py-4 bg-transparent border border-white/10 rounded-none focus:outline-none focus:ring-1 focus:ring-violet-400 text-sm"
+                required
+              />
+              <Mail className="absolute right-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+            </div>
 
-                {/* Email Input */}
-                <div className="space-y-2">
-                  <label className="block text-sm tracking-wider text-gray-400">
-                    EMAIL ADDRESS
-                  </label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
-                    <input
-                      type="email"
-                      className="w-full bg-black/30 border border-gray-800 py-3 pl-12 pr-4 text-white placeholder-gray-500 focus:border-emerald-400 focus:ring-0 focus:outline-none transition-colors"
-                      placeholder="Enter your email"
-                      required
-                    />
-                  </div>
-                </div>
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Password"
+                className="w-full px-6 py-4 bg-transparent border border-white/10 rounded-none focus:outline-none focus:ring-1 focus:ring-violet-400 text-sm"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+              >
+                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              </button>
+            </div>
 
-                {/* Phone Input */}
-                <div className="space-y-2">
-                  <label className="block text-sm tracking-wider text-gray-400">
-                    PHONE NUMBER
-                  </label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
-                    <input
-                      type="tel"
-                      className="w-full bg-black/30 border border-gray-800 py-3 pl-12 pr-4 text-white placeholder-gray-500 focus:border-emerald-400 focus:ring-0 focus:outline-none transition-colors"
-                      placeholder="Enter your phone number"
-                      required
-                    />
-                  </div>
-                </div>
+            <div className="relative">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                placeholder="Confirm Password"
+                className="w-full px-6 py-4 bg-transparent border border-white/10 rounded-none focus:outline-none focus:ring-1 focus:ring-violet-400 text-sm"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+              >
+                {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              </button>
+            </div>
 
-                {/* Password Input */}
-                <div className="space-y-2">
-                  <label className="block text-sm tracking-wider text-gray-400">
-                    PASSWORD
-                  </label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
-                    <input
-                      type={showPassword ? 'text' : 'password'}
-                      className="w-full bg-black/30 border border-gray-800 py-3 pl-12 pr-12 text-white placeholder-gray-500 focus:border-emerald-400 focus:ring-0 focus:outline-none transition-colors"
-                      placeholder="Create a password"
-                      required
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-400"
-                    >
-                      {showPassword ? (
-                        <EyeOff className="w-5 h-5" />
-                      ) : (
-                        <Eye className="w-5 h-5" />
-                      )}
-                    </button>
-                  </div>
-                </div>
+            <button 
+              className="group w-full relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-all duration-300"
+              disabled={loading}
+            >
+              {loading ? "CREATING ACCOUNT..." : "REGISTER"}
+              <ArrowUpRight className="inline-block ml-2 w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+            </button>
+          </form>
 
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  className="w-full bg-emerald-400 text-black py-3 text-sm tracking-wider hover:bg-emerald-300 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isLoading ? 'CREATING ACCOUNT...' : 'CREATE ACCOUNT'}
-                </button>
-
-                {/* Sign In Link */}
-                <div className="text-center text-sm text-gray-400">
-                  Already have an account?{' '}
-                  <a href="/login" className="text-emerald-400 hover:text-emerald-300 transition-colors">
-                   Login
-                  </a>
-                </div>
-              </form>
-            ) : (
-              <form onSubmit={handleVerificationSubmit} className="space-y-6">
-                <div className="text-center text-gray-400 mb-6">
-                  We've sent a verification code to your email address. Please enter it below.
-                </div>
-
-                {/* OTP Input Fields */}
-                <div className="flex justify-center gap-2">
-                  {[...Array(6)].map((_, i) => (
-                    <input
-                      key={i}
-                      type="text"
-                      maxLength="1"
-                      className="w-12 h-12 text-center bg-black/30 border border-gray-800 text-white focus:border-emerald-400 focus:ring-0 focus:outline-none"
-                    />
-                  ))}
-                </div>
-
-                {/* Verify Button */}
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  className="w-full bg-emerald-400 text-black py-3 text-sm tracking-wider hover:bg-emerald-300 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isLoading ? 'VERIFYING...' : 'VERIFY EMAIL'}
-                </button>
-
-                {/* Resend Code Link */}
-                <div className="text-center text-sm text-gray-400">
-                  Didn't receive the code?{' '}
-                  <button className="text-emerald-400 hover:text-emerald-300 transition-colors">
-                    Resend
-                  </button>
-                </div>
-              </form>
-            )}
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-400 font-extralight">
+              Already have an account?{" "}
+              <a
+                href="/login"
+                className="text-violet-400 hover:underline transition-colors duration-300"
+              >
+                Login now
+              </a>
+            </p>
           </div>
         </div>
       </div>

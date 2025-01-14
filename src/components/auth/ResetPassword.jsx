@@ -1,62 +1,123 @@
-import { useState } from 'react'
+import React, { useState } from "react";
+import { ArrowLeft, ArrowUpRight, Lock, Eye, EyeOff } from "lucide-react";
 
-export default function ResetPassword() {
+const ResetPassword = () => {
   const [formData, setFormData] = useState({
-    password: '',
-    confirmPassword: '',
-  })
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle reset password logic here
-    console.log('Reset password data:', formData)
-  }
+    e.preventDefault();
+    setLoading(true);
+    // Simulate password reset
+    setTimeout(() => {
+      setLoading(false);
+      alert("Password reset successful");
+    }, 2000);
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Reset Password</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              New Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              onChange={handleChange}
-              value={formData.password}
-            />
+    <div className="min-h-screen bg-[#0A0A0A] text-white flex flex-col">
+      <div className="p-6">
+        <a href="/login" className="inline-flex items-center text-sm text-gray-400 hover:text-violet-400 transition-colors">
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to Login
+        </a>
+      </div>
+
+      <div className="flex-1 flex justify-center items-center px-4">
+        <div className="w-full max-w-md px-8 py-12 border border-white/10 backdrop-blur-md">
+          <div className="text-center mb-8">
+            <Lock className="w-12 h-12 mx-auto mb-4 text-violet-400" />
+            <h2 className="text-3xl font-thin tracking-wide">
+              Reset Password
+              <span className="block mt-2 text-violet-400 text-lg font-light">
+                Create a new password
+              </span>
+            </h2>
           </div>
-          <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-              Confirm New Password
-            </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              onChange={handleChange}
-              value={formData.confirmPassword}
-            />
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-4">
+              <div className="relative">
+                <label className="block text-sm text-gray-400 mb-2">New Password</label>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="Enter new password"
+                  required
+                  className="w-full px-6 py-4 bg-transparent border border-white/10 rounded-none focus:outline-none focus:ring-1 focus:ring-violet-400 text-sm"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-[42px] transform -translate-y-1/2 text-gray-400"
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm text-gray-400 mb-2">Confirm New Password</label>
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  placeholder="Confirm new password"
+                  required
+                  className="w-full px-6 py-4 bg-transparent border border-white/10 rounded-none focus:outline-none focus:ring-1 focus:ring-violet-400 text-sm"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-4 top-[42px] transform -translate-y-1/2 text-gray-400"
+                >
+                  {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="group w-full relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-all duration-300 mt-8"
+              disabled={loading}
+            >
+              {loading ? "RESETTING PASSWORD..." : "RESET PASSWORD"}
+              <ArrowUpRight className="inline-block ml-2 w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+            </button>
+          </form>
+
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-400 font-extralight">
+              Remember your password?{" "}
+              <a
+                href="/login"
+                className="text-violet-400 hover:underline transition-colors duration-300"
+              >
+                Back to login
+              </a>
+            </p>
           </div>
-          <button
-            type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Reset Password
-          </button>
-        </form>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default ResetPassword;
