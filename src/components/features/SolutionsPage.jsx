@@ -1,51 +1,70 @@
-import React from 'react';
-import { Briefcase, Users, Building, ChevronRight } from 'lucide-react';
+import React, { useState } from "react";
+import { Briefcase, Users, Building, ChevronRight } from "lucide-react";
 
 export default function SolutionsPage() {
+  const [activeFeature, setActiveFeature] = useState(0);
+
   const solutions = [
     {
       title: "Corporate Management",
-      description: "Streamline operations and enhance decision-making across your organization.",
-      icon: <Briefcase className="w-6 h-6 text-violet-400" />
+      description:
+        "Streamline operations and enhance decision-making across your organization.",
+      icon: <Briefcase className="w-6 h-6 text-violet-400" />,
     },
     {
       title: "Team Collaboration",
-      description: "Foster seamless communication and productivity among diverse teams.",
-      icon: <Users className="w-6 h-6 text-violet-400" />
+      description:
+        "Foster seamless communication and productivity among diverse teams.",
+      icon: <Users className="w-6 h-6 text-violet-400" />,
     },
     {
       title: "Enterprise Integration",
-      description: "Seamlessly integrate NOVA with your existing enterprise systems.",
-      icon: <Building className="w-6 h-6 text-violet-400" />
-    }
+      description:
+        "Seamlessly integrate NOVA with your existing enterprise systems.",
+      icon: <Building className="w-6 h-6 text-violet-400" />,
+    },
   ];
 
   return (
-    <div className='bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white'>
+    <div className="bg-[#0A0A0A] text-white selection:bg-violet-400 selection:text-black">
       <div className="pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-6 ">
           <div className="text-center mb-24">
             <h2 className="text-3xl font-thin tracking-wider mb-4">
               TAILOREDF SOLUTIONS
             </h2>
-            <div className="w-28 h-px bg-gradient-to-r from-transparent via-violet-400 to-transparent mx-auto" />
+            <div className="w-44 h-px bg-gradient-to-r from-transparent via-violet-400 to-transparent mx-auto" />
             <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mt-6 mb-12 max-w-3xl mx-auto">
-              Discover how NOVA adapts to your unique business needs, providing targeted solutions for every challenge.
+              Discover how NOVA adapts to your unique business needs, providing
+              targeted solutions for every challenge.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {solutions.map((solution, index) => (
-              <div key={index} className="p-8 border border-gray-800 hover:border-emerald-400/50 transition-all duration-500 group">
-                <div className="flex items-center justify-center mb-6">
-                  {solution.icon}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {solutions.map((feature, index) => (
+              <div
+                key={index}
+                className="group cursor-pointer"
+                onMouseEnter={() => setActiveFeature(index)}
+              >
+                <div
+                  className={`p-8 border border-white/5 backdrop-blur-sm transition-all duration-500 relative ${
+                    activeFeature === index ? "bg-white/5" : "hover:bg-white/5"
+                  }`}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-b from-violet-400/0 to-violet-400/0 group-hover:to-violet-400/10 transition-all duration-500" />
+                  <div className="relative">
+                    <div className="flex items-center justify-center mb-6">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-lg font-extralight tracking-wider mb-4 text-center">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-gray-400 text-center leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-light tracking-wider mb-4 text-center group-hover:text-emerald-400 transition-colors">
-                  {solution.title}
-                </h3>
-                <p className="text-gray-400 text-center leading-relaxed">
-                  {solution.description}
-                </p>
               </div>
             ))}
           </div>

@@ -1,17 +1,21 @@
 import React, { useState, } from 'react';
-import { 
-  BarChart2,    
-  Shield, Globe, Zap, 
+import {    
   ChevronRight, Award, ArrowUpRight
 } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 const NovaPro = () => {
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const navigate = useNavigate();
 
-  
+  const handleRequestDemo = () => {
+    navigate("/request-demo");
+  };
 
- 
+  const handleLearnMore = () => {
+    navigate("/learn-more");
+  };
 
   const metrics = [
     { label: "Enterprise Clients", value: "500+" },
@@ -27,14 +31,14 @@ const NovaPro = () => {
 
       {/* Hero Section */}
       <div 
-        className="relative min-h-screen pt-48 pb-24 overflow-hidden"
+        className="relative min-h-screen pt-44 pb-24 overflow-hidden"
         style={{
           background: `radial-gradient(circle at ${50 + mousePosition.x * 20}% ${50 + mousePosition.y * 20}%, rgba(167, 139, 250, 0.1) 0%, transparent 50%)`
         }}
       >
         <div className="max-w-7xl mx-auto px-6 relative">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-block mb-8 px-4 py-2 border border-white/10 rounded-full backdrop-blur-sm">
+            <div className="inline-block mb-8 px-4 border border-white/10 rounded-full backdrop-blur-sm">
               <span className="text-sm font-extralight tracking-widest bg-gradient-to-r from-purple-400 to-yellow-300 bg-clip-text text-transparent">
                 VERSION 2.0 NOW AVAILABLE
               </span>
@@ -50,11 +54,11 @@ const NovaPro = () => {
               Designed for visionary leaders and exceptional teams.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <button className="group relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-all duration-300">
+              <button onClick={handleRequestDemo} className="group relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-all duration-300">
                 REQUEST DEMO
                 <ArrowUpRight className="inline-block ml-2 w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
               </button>
-              <button className="px-12 py-4 border border-white/10 text-sm tracking-wider hover:border-violet-400 transition-colors duration-300 backdrop-blur-sm">
+              <button onClick={handleLearnMore} className="px-12 py-4 border border-white/10 text-sm tracking-wider hover:border-violet-400 transition-colors duration-300 backdrop-blur-sm">
                 LEARN MORE
               </button>
             </div>

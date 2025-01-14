@@ -37,18 +37,20 @@ const Navbar = () => {
   return (
     <>
     <nav className={`fixed w-full z-50 transition-all duration-500 ${
-        scrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent'
+        scrolled ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between h-24 items-center">
             <div className="flex items-center">
+              <a href="/">
               <span className="text-2xl font-semibold tracking-widest bg-gradient-to-r from-purple-400 to-yellow-300 bg-clip-text text-transparent">
                 SOORAPRO<span className="text-violet-400">°</span>
               </span>
+              </a>
             </div>
             
             <div className="hidden md:flex items-center space-x-12">
-              {['FEATURES', 'SOLUTIONS', 'ENTERPRISE'].map((item) => (
+              {['FEATURES', 'SOLUTIONS', 'ENTERPRISE', 'PRICING'].map((item) => (
                 <a 
                   key={item}
                   href={`${item.toLowerCase()}`} 
@@ -80,7 +82,7 @@ const Navbar = () => {
               {['FEATURES', 'SOLUTIONS', 'ENTERPRISE'].map((item) => (
                 <a 
                   key={item}
-                  href={`#${item.toLowerCase()}`} 
+                  href={`${item.toLowerCase()}`} 
                   className="block text-sm tracking-widest font-extralight hover:text-violet-400 transition-colors duration-300"
                 >
                   {item}
