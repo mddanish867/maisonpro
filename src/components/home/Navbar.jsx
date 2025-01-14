@@ -86,7 +86,14 @@ const Navbar = () => {
                   {item}
                 </a>
               ))}
+               
             </div>
+            <button  onClick={handleGetAccess} className="item-center  relative px-8 py-3 overflow-hidden group bg-transparent">
+                <span className="relative z-10 text-sm tracking-widest font-extralight transition-colors duration-300 group-hover:text-black">
+                  GET ACCESS
+                </span>
+                <span className="absolute inset-0 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+              </button>
           </div>
         )}
       </nav>
