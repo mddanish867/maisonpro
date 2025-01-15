@@ -23,7 +23,7 @@ export default function UserProfile() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white flex justify-center items-center">
-      <div className="w-full max-w-md px-4 py-12 border border-white/10 backdrop-blur-md">
+      <div className="w-full max-w-md px-4 py-12 mt-20 mb-12 border border-white/10 backdrop-blur-md">
         <h2 className="text-3xl font-thin tracking-wide mb-8 text-center">
           User Profile
           <span className="block mt-2 text-violet-400 text-lg font-light">

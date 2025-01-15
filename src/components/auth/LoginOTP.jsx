@@ -62,16 +62,10 @@ const LoginOTP = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white flex flex-col">
-      <div className="p-6">
-        <a href="/login" className="inline-flex items-center text-sm text-gray-400 hover:text-violet-400 transition-colors">
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to Login
-        </a>
-      </div>
+    <div className="min-h-screen bg-[#0A0A0A] text-white flex justify-center items-center">
+     
 
-      <div className="flex-1 flex justify-center items-center px-4">
-        <div className="w-full max-w-md px-4 py-12 border border-white/10 backdrop-blur-md">
+        <div className="w-full max-w-md px-4 py-12 mt-20 border border-white/10 backdrop-blur-md">
           <div className="text-center mb-8">
             {step === 1 ? (
               <Mail className="w-12 h-12 mx-auto mb-4 text-violet-400" />
@@ -152,7 +146,6 @@ const LoginOTP = () => {
             </form>
           )}
         </div>
-      </div>
     </div>
   );
 };
