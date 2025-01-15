@@ -27,7 +27,7 @@ const ForgotPassword = () => {
       </div>
 
       <div className="flex-1 flex justify-center items-center px-4">
-        <div className="w-full max-w-md px-8 py-12 border border-white/10 backdrop-blur-md">
+        <div className="w-full max-w-md px-4 py-12 border border-white/10 backdrop-blur-md">
           <div className="text-center mb-8">
             <Mail className="w-12 h-12 mx-auto mb-4 text-violet-400" />
             <h2 className="text-3xl font-thin tracking-wide">

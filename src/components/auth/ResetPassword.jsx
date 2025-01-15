@@ -32,14 +32,17 @@ const ResetPassword = () => {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white flex flex-col">
       <div className="p-6">
-        <a href="/login" className="inline-flex items-center text-sm text-gray-400 hover:text-violet-400 transition-colors">
+        <a
+          href="/login"
+          className="inline-flex items-center text-sm text-gray-400 hover:text-violet-400 transition-colors"
+        >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Login
         </a>
       </div>
 
       <div className="flex-1 flex justify-center items-center px-4">
-        <div className="w-full max-w-md px-8 py-12 border border-white/10 backdrop-blur-md">
+        <div className="w-full max-w-md px-4 py-12 border border-white/10 backdrop-blur-md">
           <div className="text-center mb-8">
             <Lock className="w-12 h-12 mx-auto mb-4 text-violet-400" />
             <h2 className="text-3xl font-thin tracking-wide">
@@ -53,7 +56,6 @@ const ResetPassword = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-4">
               <div className="relative">
-                <label className="block text-sm text-gray-400 mb-2">New Password</label>
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
@@ -66,14 +68,17 @@ const ResetPassword = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-[42px] transform -translate-y-1/2 text-gray-400"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"
                 >
-                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  {showPassword ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
                 </button>
               </div>
 
               <div className="relative">
-                <label className="block text-sm text-gray-400 mb-2">Confirm New Password</label>
                 <input
                   type={showConfirmPassword ? "text" : "password"}
                   name="confirmPassword"
@@ -88,7 +93,11 @@ const ResetPassword = () => {
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                   className="absolute right-4 top-[42px] transform -translate-y-1/2 text-gray-400"
                 >
-                  {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  {showConfirmPassword ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
                 </button>
               </div>
             </div>

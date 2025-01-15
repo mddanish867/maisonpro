@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Eye, EyeOff } from "lucide-react";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +8,7 @@ const Login = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,7 +30,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white flex justify-center items-center">
-      <div className="w-full max-w-md px-8 py-12 border border-white/10 backdrop-blur-md rounded-lg">
+      <div className="w-full max-w-md px-4 py-12 border border-white/10 backdrop-blur-md rounded-lg">
         <h2 className="text-3xl font-thin tracking-wide mb-8 text-center">
           Welcome Back
           <span className="block mt-2 text-violet-400 text-lg font-light">
@@ -51,7 +52,7 @@ const Login = () => {
           </div>
           <div className="relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               value={formData.password}
               onChange={handleChange}
@@ -59,6 +60,13 @@ const Login = () => {
               className="w-full px-6 py-4 bg-transparent border border-white/10 rounded-none focus:outline-none focus:ring-1 focus:ring-violet-400 text-sm"
               required
             />
+            <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+                          >
+                            {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                          </button>
           </div>
 
           <button className="group w-full relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-all duration-300">
