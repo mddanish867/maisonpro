@@ -77,7 +77,7 @@ const Navbar = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden min-h-screen bg-black/95 backdrop-blur-xl border-b border-white/5">
+          <div className="md:hidden min-h-screen bg-black/80 backdrop-blur-md border-b border-white/5">
             <div className="px-6 py-8 space-y-6">
               {['FEATURES', 'SOLUTIONS', 'ENTERPRISE', 'PRICING'].map((item) => (
                 <a 

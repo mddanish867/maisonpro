@@ -16,6 +16,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import VerifyAccount from "./components/auth/VerifyAccount";
 import AccountSettings from "./components/auth/AccountSettings";
 import UserProfile from "./components/auth/UserProfile";
+import OrganizationDashboard from "./components/dashboard/Dashboard";
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
             <Route path="/pricing" element={<Pricing />} />
 
           </Route>
+          <Route path="/org-dashboard" element={<OrganizationDashboard />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/verify-account" element={<VerifyAccount />} />
