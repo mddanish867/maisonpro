@@ -3,12 +3,16 @@ import { Building2, Users, Mail, Plus, ArrowUpRight } from 'lucide-react';
 
 const OrganizationDashboard = () => {
   const [orgName, setOrgName] = useState('');
+  const [createdOrgName, setCreatedOrgName] = useState([]);
   const [inviteEmail, setInviteEmail] = useState('');
   const [invitedMembers, setInvitedMembers] = useState([]);
 
   const handleCreateOrg = (e) => {
     e.preventDefault();
-    console.log('Creating organization:', orgName);
+    if (orgName) {
+      setCreatedOrgName([...createdOrgName, orgName]);
+      setOrgName('');
+    }
   };
 
   const handleInviteMember = (e) => {
@@ -23,9 +27,9 @@ const OrganizationDashboard = () => {
     <div className="min-h-screen bg-[#0A0A0A] p-4 sm:p-6 lg:p-8">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-12">
           <div>
-            <h1 className="text-3xl font-thin tracking-wide text-white">Organization Dashboard</h1>
+            <h1 className="text-3xl font-thin tracking-wide text-white">Create new Organization</h1>
             <p className="text-gray-400 mt-1 font-light">Create and manage your organization</p>
           </div>
           <button className="group px-6 py-2 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-all duration-300">
@@ -69,6 +73,21 @@ const OrganizationDashboard = () => {
                 <ArrowUpRight className="inline-block ml-2 w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
               </button>
             </form>
+            {/* Invited Members List */}
+            <div className="mt-4">
+                <h3 className="text-sm font-thin text-gray-300 mb-2">Created Organizations</h3>
+                <div className="space-y-2">
+                  {createdOrgName.map((org, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-2 border border-white/10 p-3 text-gray-300 font-light"
+                    >
+                      <Building2  className="w-4 h-4 text-violet-400" />
+                      <span>{org}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
           </div>
 
           {/* Invite Members Card */}
