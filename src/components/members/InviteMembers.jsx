@@ -29,7 +29,7 @@ function InviteMembers() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] p-4 sm:p-6 lg:p-8">
-      <div className="max-w-[500px] w-full mx-auto space-y-8">
+      <div className="max-w-md w-full px-4 mx-auto space-y-8">
         <div className="border border-white/10 backdrop-blur-md rounded-lg p-4 sm:p-6 space-y-4 mt-20">
           {/* Header */}
           <div className="space-y-1">

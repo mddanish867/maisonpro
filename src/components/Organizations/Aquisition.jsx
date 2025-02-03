@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 const Aquisition = () => {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white flex justify-center items-center p-4">
-      <div className="w-full max-w-md px-8 py-10 border border-white/10 backdrop-blur-md rounded-lg mt-20">
+      <div className="w-full max-w-md px-4 py-10 border border-white/10 backdrop-blur-md rounded-lg mt-20">
         {/* Azure DevOps Logo and Email */}
         <div className="flex items-center gap-3 mb-8">
           <svg className="w-8 h-8 text-blue-500" viewBox="0 0 24 24">

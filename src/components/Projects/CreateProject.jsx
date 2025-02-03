@@ -23,7 +23,7 @@ const CreateProject = () => {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white flex justify-center items-center p-4">
-      <div className="w-full max-w-2xl px-8 py-10 border border-white/10 backdrop-blur-md rounded-lg mt-20">
+      <div className="w-full max-w-xl px-4 py-10 border border-white/10 backdrop-blur-md rounded-lg mt-20">
         <h1 className="text-3xl font-thin mb-8">
           Create a project to get started
         </h1>
