@@ -16,7 +16,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import VerifyAccount from "./components/auth/VerifyAccount";
 import AccountSettings from "./components/auth/AccountSettings";
 import UserProfile from "./components/auth/UserProfile";
-import OrganizationDashboard from "./components/dashboard/Dashboard";
+import Aquisition from "./components/Organizations/Aquisition";
+import CreateProject from "./components/Projects/CreateProject";
+import CreateOrg from "./components/Organizations/CreateOrg";
+import InviteMembers from "./components/members/InviteMembers";
+import ProjectDashboard from "./components/dashboard/ProjectDashboard";
 
 function App() {
   return (
@@ -31,9 +35,12 @@ function App() {
             <Route path="/enterprise" element={<EnterprisePage />} />
             <Route path="/learn-more" element={<LearnMorePage />} />
             <Route path="/pricing" element={<Pricing />} />
-
           </Route>
-          <Route path="/org-dashboard" element={<OrganizationDashboard />} />
+          <Route path="/aquisition" element={<Aquisition />} />
+          <Route path="/create-project" element={<CreateProject />} />
+          <Route path="/create-org" element={<CreateOrg />} />
+          <Route path="/invite-members" element={<InviteMembers />} />
+          <Route path="/project-dashboard" element={<ProjectDashboard />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
