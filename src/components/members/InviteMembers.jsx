@@ -27,7 +27,7 @@ function InviteMembers() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] p-4 sm:p-6 lg:p-8">
       <div className="max-w-[500px] w-full mx-auto space-y-8">
-        <div className="border border-white/10 backdrop-blur-md rounded-lg p-4 sm:p-6 space-y-4 mt-10">
+        <div className="border border-white/10 backdrop-blur-md rounded-lg p-4 sm:p-6 space-y-4 mt-20">
           {/* Header */}
           <div className="space-y-1">
             <h2 className="text-violet-400 flex items-center gap-2 text-xl font-thin">
@@ -58,7 +58,7 @@ function InviteMembers() {
                   type="submit"
                   className="px-4 py-4 sm:py-0 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 hover:opacity-90 transition-opacity"
                 >
-                 Invite Member<Mail className="w-4 h-4" />
+                 Invite Member
                 </button>
               </div>
             </div>

@@ -8,7 +8,6 @@ const CreateProject = () => {
     visibility: "private",
   });
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -24,7 +23,7 @@ const CreateProject = () => {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white flex justify-center items-center p-4">
-      <div className="w-full max-w-2xl px-8 py-10 border border-white/10 backdrop-blur-md rounded-lg">
+      <div className="w-full max-w-2xl px-8 py-10 border border-white/10 backdrop-blur-md rounded-lg mt-20">
         <h1 className="text-3xl font-thin mb-8">
           Create a project to get started
         </h1>
@@ -62,10 +61,16 @@ const CreateProject = () => {
           {/* Visibility */}
           <div className="space-y-4">
             <label className="block text-sm font-light">Visibility</label>
-
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Public Option */}
-              <div className="flex items-start gap-4 p-4 border border-white/10 hover:border-violet-400/50 transition-colors">
+              <div
+                className={`flex items-start gap-4 p-4 border transition-colors 
+            ${
+              formData.visibility === "public"
+                ? "border-violet-400 bg-white/5"
+                : "border-white/10 hover:border-violet-400/50"
+            }`}
+              >
                 <input
                   type="radio"
                   name="visibility"
@@ -76,7 +81,13 @@ const CreateProject = () => {
                 />
                 <div>
                   <div className="flex items-center gap-2">
-                    <Globe className="w-4 h-4" />
+                    <Globe
+                      className={`w-4 h-4 ${
+                        formData.visibility === "public"
+                          ? "text-violet-400"
+                          : ""
+                      }`}
+                    />
                     <span className="font-medium">Public</span>
                   </div>
                   <p className="text-sm text-gray-400 mt-1">
@@ -87,7 +98,14 @@ const CreateProject = () => {
               </div>
 
               {/* Private Option */}
-              <div className="flex items-start gap-4 p-4 border border-white/10 hover:border-violet-400/50 transition-colors">
+              <div
+                className={`flex items-start gap-4 p-4 border transition-colors 
+            ${
+              formData.visibility === "private"
+                ? "border-violet-400 bg-white/5"
+                : "border-white/10 hover:border-violet-400/50"
+            }`}
+              >
                 <input
                   type="radio"
                   name="visibility"
@@ -98,7 +116,13 @@ const CreateProject = () => {
                 />
                 <div>
                   <div className="flex items-center gap-2">
-                    <Lock className="w-4 h-4" />
+                    <Lock
+                      className={`w-4 h-4 ${
+                        formData.visibility === "private"
+                          ? "text-violet-400"
+                          : ""
+                      }`}
+                    />
                     <span className="font-medium">Private</span>
                   </div>
                   <p className="text-sm text-gray-400 mt-1">
