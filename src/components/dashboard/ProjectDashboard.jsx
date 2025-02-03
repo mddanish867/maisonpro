@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   ChevronRight,
   Plus,
@@ -18,30 +18,34 @@ import {
   HelpCircle,
   Settings as SettingsIcon,
   Users,
-  Star
-} from 'lucide-react';
+  Star,
+} from "lucide-react";
 
 const ProjectDashboard = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [currentPage, setCurrentPage] = useState('Summary');
+  const [currentPage, setCurrentPage] = useState("Summary");
 
   const navigation = [
-    { id: 'overview', label: 'Overview', icon: Layout },
-    { id: 'summary', label: 'Summary', icon: FileText },
-    { id: 'dashboards', label: 'Dashboards', icon: LayoutDashboard },
-    { id: 'wiki', label: 'Wiki', icon: Book },
-    { id: 'boards', label: 'Boards', icon: Trello },
-    { id: 'repos', label: 'Repos', icon: GitFork },
-    { id: 'pipelines', label: 'Pipelines', icon: Building2 },
-    { id: 'testplans', label: 'Test Plans', icon: Building },
-    { id: 'artifacts', label: 'Artifacts', icon: Package },
-    { id: 'projectsettings', label: 'Project settings', icon: Settings },
+    { id: "overview", label: "Overview", icon: Layout },
+    { id: "summary", label: "Summary", icon: FileText },
+    { id: "dashboards", label: "Dashboards", icon: LayoutDashboard },
+    { id: "wiki", label: "Wiki", icon: Book },
+    { id: "boards", label: "Boards", icon: Trello },
+    { id: "repos", label: "Repos", icon: GitFork },
+    { id: "pipelines", label: "Pipelines", icon: Building2 },
+    { id: "testplans", label: "Test Plans", icon: Building },
+    { id: "artifacts", label: "Artifacts", icon: Package },
+    { id: "projectsettings", label: "Project settings", icon: Settings },
   ];
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white flex">
       {/* Sidebar */}
-      <div className={`border-r border-white/10 ${isCollapsed ? 'w-16' : 'w-64'} transition-all duration-300`}>
+      <div
+        className={`border-r border-white/10 ${
+          isCollapsed ? "w-16" : "w-64"
+        } transition-all duration-300`}
+      >
         {/* Project Header */}
         <div className="p-4 border-b border-white/10 flex items-center gap-2">
           <div className="w-8 h-8 bg-emerald-600 flex items-center justify-center text-white">
@@ -62,7 +66,7 @@ const ProjectDashboard = () => {
               key={item.id}
               onClick={() => setCurrentPage(item.label)}
               className={`w-full flex items-center gap-3 px-4 py-2 hover:bg-white/5 transition-colors
-                ${currentPage === item.label ? 'bg-white/10' : ''}`}
+                ${currentPage === item.label ? "bg-white/10" : ""}`}
             >
               <item.icon className="w-5 h-5" />
               {!isCollapsed && <span>{item.label}</span>}
@@ -138,8 +142,12 @@ const ProjectDashboard = () => {
               alt="Welcome illustration"
               className="max-w-md mx-auto mb-8"
             />
-            <h2 className="text-3xl font-light mb-4">Welcome to the project!</h2>
-            <p className="text-gray-400 mb-8">What service would you like to start with?</p>
+            <h2 className="text-3xl font-light mb-4">
+              Welcome to the project!
+            </h2>
+            <p className="text-gray-400 mb-8">
+              What service would you like to start with?
+            </p>
           </div>
         </div>
       </div>

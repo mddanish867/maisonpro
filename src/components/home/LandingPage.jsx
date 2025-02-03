@@ -1,11 +1,8 @@
-import React, { useState, } from 'react';
-import {    
-  ChevronRight, Award, ArrowUpRight
-} from 'lucide-react';
+import React, { useState } from "react";
+import { ChevronRight, Award, ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const NovaPro = () => {
-
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const navigate = useNavigate();
 
@@ -21,19 +18,22 @@ const NovaPro = () => {
     { label: "Enterprise Clients", value: "500+" },
     { label: "Tasks Completed", value: "1M+" },
     { label: "Team Members", value: "50k+" },
-    { label: "Countries", value: "120+" }
+    { label: "Countries", value: "120+" },
   ];
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-violet-400 selection:text-black">
       {/* Elegant Navigation */}
-      
 
       {/* Hero Section */}
-      <div 
+      <div
         className="relative min-h-screen pt-44 pb-24 overflow-hidden"
         style={{
-          background: `radial-gradient(circle at ${50 + mousePosition.x * 20}% ${50 + mousePosition.y * 20}%, rgba(167, 139, 250, 0.1) 0%, transparent 50%)`
+          background: `radial-gradient(circle at ${
+            50 + mousePosition.x * 20
+          }% ${
+            50 + mousePosition.y * 20
+          }%, rgba(167, 139, 250, 0.1) 0%, transparent 50%)`,
         }}
       >
         <div className="max-w-7xl mx-auto px-6 relative">
@@ -54,11 +54,17 @@ const NovaPro = () => {
               Designed for visionary leaders and exceptional teams.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <button onClick={handleRequestDemo} className="group relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-all duration-300">
+              <button
+                onClick={handleRequestDemo}
+                className="group relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-all duration-300"
+              >
                 REQUEST DEMO
                 <ArrowUpRight className="inline-block ml-2 w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
               </button>
-              <button onClick={handleLearnMore} className="px-12 py-4 border border-white/10 text-sm tracking-wider hover:border-violet-400 transition-colors duration-300 backdrop-blur-sm">
+              <button
+                onClick={handleLearnMore}
+                className="px-12 py-4 border border-white/10 text-sm tracking-wider hover:border-violet-400 transition-colors duration-300 backdrop-blur-sm"
+              >
                 LEARN MORE
               </button>
             </div>
@@ -67,7 +73,6 @@ const NovaPro = () => {
       </div>
 
       {/* Features Section */}
-      
 
       {/* Metrics Section */}
       <div className="py-32 bg-black/30 backdrop-blur-sm border-y border-white/5">
@@ -94,8 +99,9 @@ const NovaPro = () => {
           <div className="max-w-3xl mx-auto text-center">
             <Award className="w-12 h-12 text-violet-400 mx-auto mb-8" />
             <p className="text-2xl font-extralight italic leading-relaxed mb-8">
-              "NOVA has revolutionized how we manage global projects. The level of sophistication
-              and attention to detail is unmatched in the industry."
+              "NOVA has revolutionized how we manage global projects. The level
+              of sophistication and attention to detail is unmatched in the
+              industry."
             </p>
             <div className="text-sm tracking-wider text-violet-400 mb-2 font-extralight">
               ALEXANDRA CHEN
@@ -116,7 +122,8 @@ const NovaPro = () => {
               EXPERIENCE EXCELLENCE
             </h2>
             <p className="text-gray-400 mb-12 leading-relaxed font-extralight">
-              Join the elite circle of organizations transforming their project management capabilities.
+              Join the elite circle of organizations transforming their project
+              management capabilities.
             </p>
             <button className="group relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider hover:bg-violet-300 transition-all duration-300 inline-flex items-center">
               BEGIN YOUR JOURNEY
@@ -127,7 +134,6 @@ const NovaPro = () => {
       </div>
 
       {/* Footer */}
-     
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import React from "react";
+import { ArrowUpRight } from "lucide-react";
 
 const RequestDemo = () => {
   return (
@@ -53,15 +53,14 @@ const RequestDemo = () => {
             />
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="group w-full relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-all duration-300"
           >
             REQUEST DEMO
             <ArrowUpRight className="inline-block ml-2 w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
           </button>
         </form>
-
       </div>
     </div>
   );

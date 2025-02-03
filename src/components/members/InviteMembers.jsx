@@ -10,16 +10,19 @@ function InviteMembers() {
   const projects = [
     { id: 1, name: "Project Alpha" },
     { id: 2, name: "Project Beta" },
-    { id: 3, name: "Project Gamma" }
+    { id: 3, name: "Project Gamma" },
   ];
 
   const handleInviteMember = (e) => {
     e.preventDefault();
     if (inviteEmail && selectedProject) {
-      setInvitedMembers([...invitedMembers, {
-        email: inviteEmail,
-        project: selectedProject
-      }]);
+      setInvitedMembers([
+        ...invitedMembers,
+        {
+          email: inviteEmail,
+          project: selectedProject,
+        },
+      ]);
       setInviteEmail("");
     }
   };
@@ -58,7 +61,7 @@ function InviteMembers() {
                   type="submit"
                   className="px-4 py-4 sm:py-0 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 hover:opacity-90 transition-opacity"
                 >
-                 Invite Member
+                  Invite Member
                 </button>
               </div>
             </div>
@@ -75,10 +78,12 @@ function InviteMembers() {
                   className="w-full px-6 py-4 bg-transparent border border-white/10 rounded-none focus:outline-none focus:ring-1 focus:ring-violet-400 text-sm text-white appearance-none"
                   required
                 >
-                  <option value="" className="bg-[#0A0A0A]">Select a project</option>
+                  <option value="" className="bg-[#0A0A0A]">
+                    Select a project
+                  </option>
                   {projects.map((project) => (
-                    <option 
-                      key={project.id} 
+                    <option
+                      key={project.id}
                       value={project.name}
                       className="bg-[#0A0A0A]"
                     >

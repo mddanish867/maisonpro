@@ -5,11 +5,11 @@ import Footer from "../home/Footer";
 const Layout = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white">
-      <Navbar/>
+      <Navbar />
       <main className="flex-grow ">
-      <Outlet />
+        <Outlet />
       </main>
-<Footer/>
+      <Footer />
     </div>
   );
 };
