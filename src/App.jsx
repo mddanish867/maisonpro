@@ -21,6 +21,7 @@ import CreateProject from "./components/Projects/CreateProject";
 import CreateOrg from "./components/Organizations/CreateOrg";
 import InviteMembers from "./components/members/InviteMembers";
 import ProjectDashboard from "./components/dashboard/ProjectDashboard";
+import OrgDashboard from "./components/dashboard/OrgDashboard";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/create-org" element={<CreateOrg />} />
           <Route path="/invite-members" element={<InviteMembers />} />
           <Route path="/project-dashboard" element={<ProjectDashboard />} />
+          <Route path="/org-dashboard" element={<OrgDashboard />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
