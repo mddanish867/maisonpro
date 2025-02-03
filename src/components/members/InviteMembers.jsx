@@ -58,7 +58,7 @@ function InviteMembers() {
                   type="submit"
                   className="px-4 py-4 sm:py-0 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 hover:opacity-90 transition-opacity"
                 >
-                  <Mail className="w-4 h-4" />
+                 Invite Member<Mail className="w-4 h-4" />
                 </button>
               </div>
             </div>
