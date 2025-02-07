@@ -1,27 +1,45 @@
 import React, { useState } from "react";
-import { Briefcase, Users, Building, ChevronRight } from "lucide-react";
+import { Code, Terminal, Server, Database, Laptop, Globe, ChevronRight } from "lucide-react";
 
 export default function SolutionsPage() {
   const [activeFeature, setActiveFeature] = useState(0);
 
   const solutions = [
     {
-      title: "Corporate Management",
+      title: "Startups & Small Teams",
       description:
-        "Streamline operations and enhance decision-making across your organization.",
-      icon: <Briefcase className="w-6 h-6 text-violet-400" />,
+        "Accelerate development with automated documentation and testing for rapid deployment cycles.",
+      icon: <Laptop className="w-6 h-6 text-violet-400" />,
     },
     {
-      title: "Team Collaboration",
+      title: "Enterprise Development",
       description:
-        "Foster seamless communication and productivity among diverse teams.",
-      icon: <Users className="w-6 h-6 text-violet-400" />,
+        "Scale documentation and testing across large codebases while maintaining consistency and quality.",
+      icon: <Server className="w-6 h-6 text-violet-400" />,
     },
     {
-      title: "Enterprise Integration",
+      title: "Legacy Code Maintenance",
       description:
-        "Seamlessly integrate NOVA with your existing enterprise systems.",
-      icon: <Building className="w-6 h-6 text-violet-400" />,
+        "Document and modernize existing codebases with automated analysis and improvement suggestions.",
+      icon: <Database className="w-6 h-6 text-violet-400" />,
+    },
+    {
+      title: "Open Source Projects",
+      description:
+        "Generate comprehensive documentation and test suites for community-driven development.",
+      icon: <Globe className="w-6 h-6 text-violet-400" />,
+    },
+    {
+      title: "API Development",
+      description:
+        "Create detailed API documentation and integration tests automatically from your codebase.",
+      icon: <Terminal className="w-6 h-6 text-violet-400" />,
+    },
+    {
+      title: "DevOps Integration",
+      description:
+        "Seamlessly integrate documentation and testing into your CI/CD pipeline for continuous quality.",
+      icon: <Code className="w-6 h-6 text-violet-400" />,
     },
   ];
 
@@ -31,16 +49,16 @@ export default function SolutionsPage() {
         <div className="max-w-7xl mx-auto px-6 ">
           <div className="text-center mb-24">
             <h2 className="text-3xl font-thin tracking-wider mb-4">
-              TAILOREDF SOLUTIONS
+              TAILORED FOR YOUR WORKFLOW
             </h2>
             <div className="w-44 h-px bg-gradient-to-r from-transparent via-violet-400 to-transparent mx-auto" />
             <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mt-6 mb-12 max-w-3xl mx-auto">
-              Discover how NOVA adapts to your unique business needs, providing
-              targeted solutions for every challenge.
+              From startups to enterprises, discover how our AI-powered tools adapt to your 
+              development needs and enhance your coding workflow.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {solutions.map((feature, index) => (
               <div
                 key={index}
@@ -74,10 +92,10 @@ export default function SolutionsPage() {
       <div className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-thin tracking-wider mb-8">
-            Find Your Perfect Solution
+            Ready to Transform Your Development Process?
           </h2>
-          <button className="px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider  transition-colors duration-300 flex items-center justify-center mx-auto group">
-            EXPLORE SOLUTIONS
+          <button className="px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-colors duration-300 flex items-center justify-center mx-auto group">
+            GET STARTED
             <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </button>
         </div>

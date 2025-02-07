@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Shield, Zap, Users, Globe, ChevronRight } from "lucide-react";
+import { Shield, Database, Users, GitMerge, Scale, Server, Lock, Settings, ChevronRight  } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function EnterprisePage() {
@@ -11,26 +11,46 @@ export default function EnterprisePage() {
   };
   const enterpriseFeatures = [
     {
-      title: "Advanced Security",
+      title: "Enterprise Security",
       description:
-        "Enterprise-grade security measures to protect your sensitive data.",
+        "Advanced security protocols for protecting proprietary code and sensitive documentation.",
       icon: <Shield className="w-6 h-6 text-violet-400" />,
     },
     {
-      title: "Scalable Performance",
+      title: "Large-Scale Analysis",
       description:
-        "Seamlessly scale NOVA to meet your growing enterprise needs.",
-      icon: <Zap className="w-6 h-6 text-violet-400" />,
+        "Process and analyze massive codebases with distributed computing capabilities.",
+      icon: <Database className="w-6 h-6 text-violet-400" />,
     },
     {
-      title: "Dedicated Support",
-      description: "24/7 priority support from our expert team.",
+      title: "Team Management",
+      description: "Comprehensive team management with role-based access control and collaboration features.",
       icon: <Users className="w-6 h-6 text-violet-400" />,
     },
     {
-      title: "Global Deployment",
-      description: "Deploy NOVA across your global offices with ease.",
-      icon: <Globe className="w-6 h-6 text-violet-400" />,
+      title: "CI/CD Integration",
+      description: "Seamless integration with enterprise CI/CD pipelines and development workflows.",
+      icon: <GitMerge className="w-6 h-6 text-violet-400" />,
+    },
+    {
+      title: "Unlimited Scaling",
+      description: "Scale documentation and testing across multiple projects and repositories.",
+      icon: <Scale className="w-6 h-6 text-violet-400" />,
+    },
+    {
+      title: "Private Deployment",
+      description: "On-premise deployment options with dedicated infrastructure support.",
+      icon: <Server className="w-6 h-6 text-violet-400" />,
+    },
+    {
+      title: "Compliance Controls",
+      description: "Built-in compliance checks and audit trails for regulated industries.",
+      icon: <Lock className="w-6 h-6 text-violet-400" />,
+    },
+    {
+      title: "Custom Integration",
+      description: "Custom API integrations with existing enterprise development tools.",
+      icon: <Settings className="w-6 h-6 text-violet-400" />,
     },
   ];
 
@@ -40,13 +60,13 @@ export default function EnterprisePage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-24">
             <h2 className="text-3xl font-thin tracking-wider mb-4">
-              ENTERPRISE EXCELLENCE
+              ENTERPRISE SOLUTIONS
             </h2>
             <div className="w-44 h-px bg-gradient-to-r from-transparent via-violet-400 to-transparent mx-auto" />
 
             <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mt-6 mb-12 max-w-3xl mx-auto">
-              Empower your enterprise with NOVA's comprehensive suite of tools
-              designed for large-scale operations.
+              Scale your development capabilities with our enterprise-grade documentation 
+              and testing platform designed for large organizations.
             </p>
           </div>
 
@@ -84,13 +104,13 @@ export default function EnterprisePage() {
       <div className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-thin tracking-wider mb-8">
-            Elevate Your Enterprise
+            Scale Your Development Process
           </h2>
           <button
             onClick={handleContactSales}
             className="px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-colors duration-300 flex items-center justify-center mx-auto group"
           >
-            CONTACT SALES
+            TALK TO SALES
             <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </button>
         </div>

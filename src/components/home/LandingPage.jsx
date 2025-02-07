@@ -15,16 +15,14 @@ const NovaPro = () => {
   };
 
   const metrics = [
-    { label: "Enterprise Clients", value: "500+" },
-    { label: "Tasks Completed", value: "1M+" },
-    { label: "Team Members", value: "50k+" },
-    { label: "Countries", value: "120+" },
+    { label: "Code Bases Analyzed", value: "100k+" },
+    { label: "Tests Generated", value: "5M+" },
+    { label: "Active Developers", value: "200k+" },
+    { label: "Languages Supported", value: "25+" },
   ];
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-violet-400 selection:text-black">
-      {/* Elegant Navigation */}
-
       {/* Hero Section */}
       <div
         className="relative min-h-screen pt-44 pb-24 overflow-hidden"
@@ -40,39 +38,37 @@ const NovaPro = () => {
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-block mb-8 px-4 border border-white/10 rounded-full backdrop-blur-sm">
               <span className="text-sm font-extralight tracking-widest bg-gradient-to-r from-purple-400 to-yellow-300 bg-clip-text text-transparent">
-                VERSION 2.0 NOW AVAILABLE
+                AI-POWERED CODE ASSISTANT
               </span>
             </div>
             <h1 className="text-5xl md:text-7xl font-thin tracking-tight mb-8">
-              Elevate Your
+              Transform Your
               <span className="block mt-2 font-light bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
-                Project Excellence
+                Code Quality
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-extralight leading-relaxed mb-12">
-              Experience unprecedented sophistication in project management.
-              Designed for visionary leaders and exceptional teams.
+              Generate comprehensive documentation, test cases, and code improvements automatically. 
+              Built for modern development teams and ambitious projects.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <button
                 onClick={handleRequestDemo}
                 className="group relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider transition-all duration-300"
               >
-                REQUEST DEMO
+                TRY FREE
                 <ArrowUpRight className="inline-block ml-2 w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
               </button>
               <button
                 onClick={handleLearnMore}
                 className="px-12 py-4 border border-white/10 text-sm tracking-wider hover:border-violet-400 transition-colors duration-300 backdrop-blur-sm"
               >
-                LEARN MORE
+                EXPLORE FEATURES
               </button>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Features Section */}
 
       {/* Metrics Section */}
       <div className="py-32 bg-black/30 backdrop-blur-sm border-y border-white/5">
@@ -99,15 +95,14 @@ const NovaPro = () => {
           <div className="max-w-3xl mx-auto text-center">
             <Award className="w-12 h-12 text-violet-400 mx-auto mb-8" />
             <p className="text-2xl font-extralight italic leading-relaxed mb-8">
-              "NOVA has revolutionized how we manage global projects. The level
-              of sophistication and attention to detail is unmatched in the
-              industry."
+              "This tool has dramatically improved our documentation coverage and test quality. 
+              The AI-powered suggestions have helped us identify and fix issues we might have missed."
             </p>
             <div className="text-sm tracking-wider text-violet-400 mb-2 font-extralight">
-              ALEXANDRA CHEN
+              DAVID PARK
             </div>
             <div className="text-sm tracking-wider text-gray-400 font-extralight">
-              CHIEF TECHNOLOGY OFFICER, FORTUNE 500
+              LEAD DEVELOPER, TECH UNICORN
             </div>
           </div>
         </div>
@@ -119,21 +114,19 @@ const NovaPro = () => {
         <div className="max-w-7xl mx-auto px-6 relative">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-thin tracking-wider mb-8">
-              EXPERIENCE EXCELLENCE
+              ELEVATE YOUR CODE
             </h2>
             <p className="text-gray-400 mb-12 leading-relaxed font-extralight">
-              Join the elite circle of organizations transforming their project
-              management capabilities.
+              Join thousands of developers using AI to write better code, 
+              create comprehensive documentation, and maintain robust test coverage.
             </p>
             <button className="group relative px-12 py-4 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider hover:bg-violet-300 transition-all duration-300 inline-flex items-center">
-              BEGIN YOUR JOURNEY
+              START CODING SMARTER
               <ChevronRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </div>
         </div>
       </div>
-
-      {/* Footer */}
     </div>
   );
 };

@@ -4,36 +4,44 @@ import { Check, ChevronRight } from "lucide-react";
 export default function PricingPage() {
   const plans = [
     {
-      name: "Starter",
-      price: "$99",
+      name: "Developer",
+      price: "$49",
       features: [
-        "Up to 10 team members",
-        "Basic project management",
-        "5GB storage",
-        "Email support",
+        "Up to 3 developers",
+        "Basic documentation generation",
+        "Unit test generation",
+        "Code analysis",
+        "Community support",
+        "5 projects",
       ],
     },
     {
-      name: "Professional",
-      price: "$299",
+      name: "Team",
+      price: "$199",
       features: [
-        "Up to 50 team members",
-        "Advanced project management",
-        "50GB storage",
-        "Priority email & chat support",
-        "API access",
+        "Up to 25 developers",
+        "Advanced documentation",
+        "Unit & integration tests",
+        "Deep code analysis",
+        "Priority support",
+        "Unlimited projects",
+        "CI/CD integration",
+        "Team collaboration tools",
       ],
     },
     {
       name: "Enterprise",
       price: "Custom",
       features: [
-        "Unlimited team members",
-        "Full suite of features",
-        "Unlimited storage",
+        "Unlimited developers",
+        "Custom documentation templates",
+        "Advanced test automation",
+        "Custom code analysis rules",
         "24/7 dedicated support",
-        "Custom integrations",
-        "On-premise deployment option",
+        "Private deployment option",
+        "SSO & advanced security",
+        "Custom API integration",
+        "Compliance controls",
       ],
     },
   ];
@@ -50,8 +58,8 @@ export default function PricingPage() {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-12 max-w-3xl mx-auto">
-              Choose the perfect plan to elevate your project management
-              capabilities with NOVA.
+              Choose the plan that best fits your development team's needs.
+              All plans include core documentation and testing capabilities.
             </p>
           </div>
 
@@ -79,7 +87,7 @@ export default function PricingPage() {
                   ))}
                 </ul>
                 <button className="w-full px-6 py-3 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 text-sm tracking-wider hover:bg-emerald-300 transition-colors duration-300 flex items-center justify-center group">
-                  {plan.name === "Enterprise" ? "CONTACT SALES" : "GET STARTED"}
+                  {plan.name === "Enterprise" ? "CONTACT SALES" : "START FREE TRIAL"}
                   <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
               </div>
