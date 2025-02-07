@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 const RequestDemo = () => {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white flex justify-center items-center">
-      <div className="w-full max-w-md px-4 py-12 md:mt-40 mt-24 border border-white/10 backdrop-blur-md rounded-lg">
+      <div className="w-full max-w-md px-4 py-12 md:mt-40 mt-20 border border-white/10 backdrop-blur-md rounded-lg">
         <h2 className="text-3xl font-thin tracking-wide mb-8 text-center">
           Experience
           <span className="block mt-2 text-violet-400 text-lg font-light">
