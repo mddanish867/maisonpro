@@ -90,6 +90,16 @@ const ProjectDashboard = () => {
           <div className="flex flex-col gap-4">
             {/* Mobile/Tablet Navigation Row */}
             <div className="flex items-center justify-between gap-3 w-full">
+               {/* Breadcrumb - Hidden on mobile, visible on larger screens */}
+            <div className="hidden md:flex items-center gap-2 text-sm font-extralight overflow-x-auto">
+              <span>Organization Name</span>
+              <ChevronRight className="w-4 h-4" />
+              <span>Project Name</span>
+              <ChevronRight className="w-4 h-4" />
+              <span>Overview</span>
+              <ChevronRight className="w-4 h-4" />
+              <span>Summary</span>
+            </div>
               {/* Hamburger Menu - Always visible on mobile/tablet */}
               <button
                 onClick={toggleMobileMenu}
@@ -98,7 +108,7 @@ const ProjectDashboard = () => {
                 {isMobileMenuOpen ? (
                   <X className="w-6 h-6 text-violet-400" />
                 ) : (
-                  <Menu className="w-6 h-6 text-violet-400" />
+                  <Menu className="md:hidden w-6 h-6 text-violet-400" />
                 )}
               </button>
 
@@ -122,16 +132,7 @@ const ProjectDashboard = () => {
               </div>
             </div>
 
-            {/* Breadcrumb - Hidden on mobile, visible on larger screens */}
-            <div className="hidden md:flex items-center gap-2 text-sm font-extralight overflow-x-auto">
-              <span>Organization Name</span>
-              <ChevronRight className="w-4 h-4" />
-              <span>Project Name</span>
-              <ChevronRight className="w-4 h-4" />
-              <span>Overview</span>
-              <ChevronRight className="w-4 h-4" />
-              <span>Summary</span>
-            </div>
+           
           </div>
         </div>
 
