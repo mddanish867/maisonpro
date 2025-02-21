@@ -97,59 +97,69 @@ const ProjectDashboard = () => {
 
       {/* Main Content */}
       <div className="flex-1 w-full">
-        {/* Top Navigation */}
-        <div className="border-b border-white/10 p-4">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm font-extralight overflow-x-auto">
-              <span>Organization Name</span>
-              <ChevronRight className="w-4 h-4" />
-              <span>Project Name</span>
-              <ChevronRight className="w-4 h-4" />
-              <span>Overview</span>
-              <ChevronRight className="w-4 h-4" />
-              <span>Summary</span>
+      {/* Top Navigation */}
+      <div className="border-b border-white/10 p-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          {/* Breadcrumb for medium and large screens */}
+          <div className="hidden md:flex items-center gap-2 text-sm font-extralight overflow-x-auto">
+            <span>Organization Name</span>
+            <ChevronRight className="w-4 h-4" />
+            <span>Project Name</span>
+            <ChevronRight className="w-4 h-4" />
+            <span>Overview</span>
+            <ChevronRight className="w-4 h-4" />
+            <span>Summary</span>
+          </div>
+    
+          {/* Right Actions */}
+          <div className="flex items-center gap-4 overflow-x-auto">
+            <div className="relative flex-1 md:flex-none">
+              <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search"
+                className="w-full md:w-auto pl-10 pr-4 py-1.5 bg-transparent border border-white/10 focus:outline-none focus:ring-1 focus:ring-violet-400 text-sm"
+              />
             </div>
-
-            {/* Right Actions */}
-            <div className="flex items-center gap-4 overflow-x-auto">
-              <div className="relative flex-1 md:flex-none">
-                <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="w-full md:w-auto pl-10 pr-4 py-1.5 bg-transparent border border-white/10 focus:outline-none focus:ring-1 focus:ring-violet-400 text-sm"
-                />
-              </div>
-              <div className="flex items-center gap-4">
-                <Bell className="w-5 h-5 text-violet-400" />                
-                <SettingsIcon className="w-5 h-5 text-violet-400" />
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-yellow-300 rounded-full flex items-center justify-center text-blue-800">
-                  DF
-                </div>
+            <div className="flex items-center gap-4">
+              <Bell className="w-5 h-5 text-violet-400" />
+              <SettingsIcon className="w-5 h-5 text-violet-400" />
+              <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-yellow-300 rounded-full flex items-center justify-center text-blue-800">
+                DF
               </div>
             </div>
           </div>
-        </div>
-
-      
-        {/* Main Content Area */}
-        <div className="p-4 md:p-8 flex justify-center items-center mt-40">
-          <div className="text-center">
-            <img
-              src="/api/placeholder/600/400"
-              alt="Welcome illustration"
-              className="max-w-full md:max-w-md mx-auto mb-8"
-            />
-            <h2 className="text-3xl font-thin mb-4">
-              Welcome to the project!
-            </h2>
-            <p className="text-gray-400 mb-8 font-extralight">
-              What service would you like to start with?
-            </p>
+    
+          {/* Breadcrumb for small screens (mobile/tablet) */}
+          <div className="md:hidden flex items-center gap-2 text-sm font-extralight overflow-x-auto">
+            <span>Organization Name</span>
+            <ChevronRight className="w-4 h-4" />
+            <span>Project Name</span>
+            <ChevronRight className="w-4 h-4" />
+            <span>Overview</span>
+            <ChevronRight className="w-4 h-4" />
+            <span>Summary</span>
           </div>
         </div>
       </div>
+    
+      {/* Main Content Area */}
+      <div className="p-4 md:p-8 flex justify-center items-center mt-40">
+        <div className="text-center">
+          <img
+            src="/api/placeholder/600/400"
+            alt="Welcome illustration"
+            className="max-w-full md:max-w-md mx-auto mb-8"
+          />
+          <h2 className="text-3xl font-thin mb-4">
+            Welcome to the project!
+          </h2>
+          <p className="text-gray-400 mb-8 font-extralight">
+            What service would you like to start with?
+          </p>
+        </div>
+      </div>
+    </div>
 
       {/* Overlay for mobile menu */}
       {isMobileMenuOpen && (
