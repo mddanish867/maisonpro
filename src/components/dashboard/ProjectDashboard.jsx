@@ -15,7 +15,8 @@ import {
   Search,
   Bell, 
   Settings as SettingsIcon, 
-  Menu,
+  AlignLeft,
+  
   X,
 } from "lucide-react";
 
@@ -108,7 +109,7 @@ const ProjectDashboard = () => {
                 {isMobileMenuOpen ? (
                   <X className="w-6 h-6 text-violet-400" />
                 ) : (
-                  <Menu className="md:hidden w-6 h-6 text-violet-400" />
+                  <AlignLeft className="md:hidden w-6 h-6 text-violet-400" />
                 )}
               </button>
 

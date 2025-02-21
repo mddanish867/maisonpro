@@ -3,7 +3,7 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
-import { Menu, X, RefreshCw, Moon, Sun } from "lucide-react";
+import { AlignLeft , X, RefreshCw, Moon, Sun } from "lucide-react";
 
 const initialWidgets = [
   {
@@ -70,7 +70,7 @@ const OrgDashboard = () => {
             {isMobileMenuOpen ? (
               <X className="w-6 h-6 text-violet-400" />
             ) : (
-              <Menu className="w-6 h-6 text-violet-400" />
+              <AlignLeft className="w-6 h-6 text-violet-400" />
             )}
           </button>
           <h1 className="text-xl font-thin">Project Dashboard</h1>
