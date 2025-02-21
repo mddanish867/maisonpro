@@ -126,11 +126,9 @@ const ProjectDashboard = () => {
                 />
               </div>
               <div className="flex items-center gap-4">
-                <Bell className="w-5 h-5 text-violet-400" />
-                <ShoppingBag className="w-5 h-5 text-violet-400" />
-                <HelpCircle className="w-5 h-5 text-violet-400" />
+                <Bell className="w-5 h-5 text-violet-400" />                
                 <SettingsIcon className="w-5 h-5 text-violet-400" />
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-yellow-300 flex items-center justify-center text-blue-800">
+                <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-yellow-300 rounded-full flex items-center justify-center text-blue-800">
                   DF
                 </div>
               </div>
