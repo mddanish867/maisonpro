@@ -13,12 +13,8 @@ import {
   Package,
   Settings,
   Search,
-  Bell,
-  ShoppingBag,
-  HelpCircle,
-  Settings as SettingsIcon,
-  Users,
-  Star,
+  Bell, 
+  Settings as SettingsIcon, 
   Menu,
   X,
 } from "lucide-react";
@@ -74,7 +70,7 @@ const ProjectDashboard = () => {
           </div>
           {!isCollapsed && (
             <div className="flex items-center justify-between flex-1">
-              <span className="font-thin">Test</span>
+              <span className="font-thin">Project name</span>
               <Plus className="w-4 h-4 text-violet-400" />
             </div>
           )}
@@ -106,9 +102,9 @@ const ProjectDashboard = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm font-extralight overflow-x-auto">
-              <span>DanishFaiyaz2003</span>
+              <span>Organization Name</span>
               <ChevronRight className="w-4 h-4" />
-              <span>Test</span>
+              <span>Project Name</span>
               <ChevronRight className="w-4 h-4" />
               <span>Overview</span>
               <ChevronRight className="w-4 h-4" />
@@ -136,30 +132,9 @@ const ProjectDashboard = () => {
           </div>
         </div>
 
-        {/* Content Header */}
-        <div className="p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-yellow-300 flex items-center justify-center text-blue-800 text-xl">
-              T
-            </div>
-            <h1 className="text-2xl font-thin">Test</h1>
-          </div>
-          <div className="flex items-center gap-2">
-            <button className="px-4 py-2 border border-white/10 flex items-center gap-2 hover:bg-white/5 font-extralight">
-              <Users className="w-4 h-4 text-violet-400" />
-              Private
-            </button>
-            <button className="px-4 py-2 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 hover:opacity-90 transition-opacity font-extralight">
-              Invite
-            </button>
-            <button className="p-2 border border-white/10 hover:bg-white/5">
-              <Star className="w-4 h-4 text-violet-400" />
-            </button>
-          </div>
-        </div>
-
+      
         {/* Main Content Area */}
-        <div className="p-4 md:p-8 flex justify-center items-center">
+        <div className="p-4 md:p-8 flex justify-center items-center mt-40">
           <div className="text-center">
             <img
               src="/api/placeholder/600/400"
