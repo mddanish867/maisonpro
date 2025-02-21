@@ -3,10 +3,8 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
-import { FiRefreshCw, FiSun, FiMoon } from "react-icons/fi";
+import { Menu, X, RefreshCw, Moon, Sun } from "lucide-react";
 
-// Need to install npm install react-dnd react-dnd-html5-backend chart.js react-chartjs-2 react-icons
-// Widget data
 const initialWidgets = [
   {
     id: 1,
@@ -39,7 +37,7 @@ const DraggableWidget = ({ id, children, onMove }) => {
   return (
     <div
       ref={(node) => drag(drop(node))}
-      className={`bg-gray-800 rounded-lg p-4 border border-gray-700 ${
+      className={`bg-[#0A0A0A] rounded-lg p-4 border border-white/10 backdrop-blur-md ${
         isDragging ? "opacity-50" : "opacity-100"
       }`}
     >
@@ -49,7 +47,7 @@ const DraggableWidget = ({ id, children, onMove }) => {
 };
 
 const OrgDashboard = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [widgets, setWidgets] = useState(initialWidgets);
 
   const handleMove = (fromId, toId) => {
@@ -61,43 +59,70 @@ const OrgDashboard = () => {
   };
 
   return (
-    <div
-      className={`min-h-screen ${
-        darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
-      }`}
-    >
-      <header className="p-4 bg-gray-800 flex justify-between items-center">
-        <h1 className="text-xl font-bold">Project Dashboard</h1>
-        <div className="flex gap-2">
+    <div className="min-h-screen bg-[#0A0A0A] text-white">
+      {/* Header */}
+      <header className="p-4 border-b border-white/10 flex justify-between items-center">
+        <div className="flex items-center gap-4">
           <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-lg bg-gray-700 hover:bg-gray-600"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden p-2 hover:bg-white/5 transition-colors"
           >
-            {darkMode ? <FiSun /> : <FiMoon />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6 text-violet-400" />
+            ) : (
+              <Menu className="w-6 h-6 text-violet-400" />
+            )}
           </button>
-          <button className="p-2 rounded-lg bg-blue-600 hover:bg-blue-500">
-            <FiRefreshCw />
+          <h1 className="text-xl font-thin">Project Dashboard</h1>
+        </div>
+        <div className="flex gap-2">
+          <button className="p-2 border border-white/10 hover:bg-white/5 transition-colors">
+            <Moon className="w-5 h-5 text-violet-400" />
+          </button>
+          <button className="p-2 bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800">
+            <RefreshCw className="w-5 h-5" />
           </button>
         </div>
       </header>
 
       <DndProvider backend={HTML5Backend}>
+        {/* Mobile Menu */}
+        <div
+          className={`lg:hidden fixed inset-y-0 left-0 transform ${
+            isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+          } w-64 bg-[#0A0A0A] border-r border-white/10 z-40 transition-transform duration-300`}
+        >
+          <div className="p-4">
+            <h2 className="text-lg font-thin mb-4">Dashboard Menu</h2>
+            {/* Add mobile menu items here */}
+          </div>
+        </div>
+
+        {/* Overlay for mobile menu */}
+        {isMobileMenuOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+
+        {/* Widgets Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
           {widgets.map((widget) => (
             <DraggableWidget key={widget.id} id={widget.id} onMove={handleMove}>
               <div className="h-64">
-                <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">
+                <h3 className="text-lg font-thin mb-4 border-b border-white/10 pb-2">
                   {widget.title}
                 </h3>
                 {widget.type === "sprint" && (
                   <div className="space-y-4">
-                    <div className="h-2 bg-gray-700 rounded-full">
+                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-blue-600 rounded-full"
+                        className="h-full bg-gradient-to-r from-purple-400 to-yellow-300 rounded-full"
                         style={{ width: `${widget.content.progress}%` }}
                       />
                     </div>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-gray-400 font-extralight">
                       {widget.content.progress}% completed (13/20 tasks)
                     </p>
                   </div>
@@ -111,7 +136,7 @@ const OrgDashboard = () => {
                         {
                           label: "Remaining Work",
                           data: [20, 18, 15, 12, 8],
-                          borderColor: "#2563eb",
+                          borderColor: "#A78BFA",
                           tension: 0.4,
                         },
                       ],
@@ -121,18 +146,22 @@ const OrgDashboard = () => {
                       plugins: {
                         legend: {
                           labels: {
-                            color: darkMode ? "#fff" : "#000",
+                            color: "#fff",
+                            font: {
+                              family: "system-ui",
+                              weight: "300"
+                            }
                           },
                         },
                       },
                       scales: {
                         x: {
-                          ticks: { color: darkMode ? "#fff" : "#000" },
-                          grid: { color: darkMode ? "#374151" : "#e5e7eb" },
+                          ticks: { color: "#fff", font: { weight: "300" } },
+                          grid: { color: "rgba(255, 255, 255, 0.1)" },
                         },
                         y: {
-                          ticks: { color: darkMode ? "#fff" : "#000" },
-                          grid: { color: darkMode ? "#374151" : "#e5e7eb" },
+                          ticks: { color: "#fff", font: { weight: "300" } },
+                          grid: { color: "rgba(255, 255, 255, 0.1)" },
                         },
                       },
                     }}
@@ -145,20 +174,20 @@ const OrgDashboard = () => {
                       {
                         title: "Bug fix: Login issue",
                         status: "Done",
-                        color: "text-blue-400",
+                        color: "text-violet-400",
                       },
                       {
                         title: "Feature: User profile",
                         status: "In Progress",
-                        color: "text-yellow-400",
+                        color: "text-yellow-300",
                       },
                     ].map((item, index) => (
                       <li
                         key={index}
-                        className="p-2 bg-gray-700 rounded flex justify-between items-center"
+                        className="p-2 border border-white/10 rounded flex justify-between items-center hover:bg-white/5 transition-colors"
                       >
-                        <span>{item.title}</span>
-                        <span className={`${item.color} text-sm`}>
+                        <span className="font-extralight">{item.title}</span>
+                        <span className={`${item.color} text-sm font-extralight`}>
                           {item.status}
                         </span>
                       </li>
