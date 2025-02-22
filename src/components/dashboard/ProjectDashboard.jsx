@@ -54,14 +54,17 @@ const ProjectDashboard = () => {
       >
         {/* Project Header */}
         <div className="p-4 border-b border-white/10 flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-yellow-300 flex items-center justify-center text-blue-800">
+          {/* <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-yellow-300 flex items-center justify-center text-blue-800">
             T
-          </div>
+          </div> */}
           {!isCollapsed && (
-            <div className="flex items-center justify-between flex-1">
-              <span className="font-thin">Project name</span>
-              <Plus className="w-4 h-4 text-violet-400" />
-            </div>
+            <div className="flex items-center">
+            <a href="/">
+              <span className="text-2xl font-semibold tracking-widest bg-gradient-to-r from-purple-400 to-yellow-300 bg-clip-text text-transparent">
+                SOORAPRO<span className="text-violet-400">°</span>
+              </span>
+            </a>
+          </div>
           )}
         </div>
 

@@ -73,7 +73,14 @@ const OrgDashboard = () => {
               <AlignLeft className="w-6 h-6 text-violet-400" />
             )}
           </button>
-          <h1 className="text-xl font-thin">Project Dashboard</h1>
+          {/* <h1 className="text-xl font-thin">Project Dashboard</h1> */}
+          <div className="flex items-center">
+              <a href="/">
+                <span className="text-2xl font-semibold tracking-widest bg-gradient-to-r from-purple-400 to-yellow-300 bg-clip-text text-transparent">
+                  SOORAPRO<span className="text-violet-400">°</span>
+                </span>
+              </a>
+            </div>
         </div>
         <div className="flex gap-2">
           <button className="p-2 border border-white/10 hover:bg-white/5 transition-colors">
