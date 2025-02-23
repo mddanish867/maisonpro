@@ -1,0 +1,55 @@
+name: Pre-production Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_message:
+        description: 'Deployment message'
+        required: false
+        default: 'Manual deployment to preprod'
+  push:
+    branches:
+      - preprod
+
+jobs:
+  deploy-to-preprod:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for all branches
+      
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+      
+      - name: Sync QA to Preprod
+        run: |
+          echo "Syncing QA branch to Preprod..."
+          git checkout preprod
+          git pull origin preprod
+          git pull origin qa
+          git push origin preprod
+      
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+      
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+      
+      - name: Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+      
+      - name: Deploy to Pre-production
+        run: |
+          echo "Deploying to Pre-production environment..."
+          echo "Deployment message: ${{ github.event.inputs.deploy_message || 'Push triggered deployment' }}"
+          vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
