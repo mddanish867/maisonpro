@@ -22,6 +22,8 @@ import CreateOrg from "./components/Organizations/CreateOrg";
 import InviteMembers from "./components/members/InviteMembers";
 import ProjectDashboard from "./components/dashboard/ProjectDashboard";
 import OrgDashboard from "./components/dashboard/OrgDashboard";
+import UnitTestSummary from "./components/unit-test/UnitTestSummary";
+import UnitTestGenerator from "./components/unit-test/UnitTestGenerator";
 
 function App() {
   return (
@@ -43,6 +45,8 @@ function App() {
           <Route path="/invite-members" element={<InviteMembers />} />
           <Route path="/project-dashboard" element={<ProjectDashboard />} />
           <Route path="/org-dashboard" element={<OrgDashboard />} />
+          <Route path="/test-summary" element={<UnitTestSummary />} />
+          <Route path="/generate-test" element={<UnitTestGenerator />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
