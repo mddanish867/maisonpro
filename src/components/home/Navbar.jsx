@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { EllipsisVertical, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
+import UserDropdown from "../auth/UserDropdown";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -81,6 +81,26 @@ const Navbar = () => {
                   <EllipsisVertical className="w-6 h-6" />
                 )}
               </button>
+            </div>
+            <div className="relative">
+              <button
+                onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
+                className="bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 flex items-center gap-2 p-2  rounded-full"
+              >
+                {/* {displayUserAvatar()} */}DA
+              </button>
+              {isUserDropdownOpen && (
+                <UserDropdown
+                  isOpen={isUserDropdownOpen}
+                  // userData={userData}
+                  // handleLogOut={handleLogout}
+                  onClose={() => setIsUserDropdownOpen(false)}
+                  // displayImageOrInitials={() =>
+                  //   displayUserAvatar("w-16 h-16", "text-3xl")
+                  // }
+                  // handleSwitchAccount={handleSwitchAccount}
+                />
+              )}
             </div>
           </div>
         </div>
