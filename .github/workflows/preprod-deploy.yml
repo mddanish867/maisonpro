@@ -14,6 +14,8 @@ on:
 jobs:
   deploy-to-preprod:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
       - name: Checkout code
@@ -25,13 +27,26 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
+          git config pull.rebase true
       
       - name: Sync QA to Preprod
         run: |
           echo "Syncing QA branch to Preprod..."
+          # Fetch all branches
+          git fetch origin
+          
+          # Checkout and update preprod branch
           git checkout preprod
           git pull origin preprod
-          git pull origin qa
+          
+          # Create a temporary branch from qa
+          git checkout -b temp-qa origin/qa
+          
+          # Switch back to preprod and merge changes from temp-qa
+          git checkout preprod
+          git merge temp-qa --no-ff -m "Merging QA changes into Preprod"
+          
+          # Push changes to preprod
           git push origin preprod
       
       - name: Install Node.js
