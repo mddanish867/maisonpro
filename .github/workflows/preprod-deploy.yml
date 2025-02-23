@@ -1,14 +1,12 @@
 name: Pre-production Deployment
 
 on:
-  # Add workflow_dispatch to enable manual triggers
   workflow_dispatch:
     inputs:
       deploy_message:
         description: 'Deployment message'
         required: false
         default: 'Manual deployment to preprod'
-  # Keep existing push trigger
   push:
     branches:
       - preprod
@@ -21,7 +19,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          ref: qa  # This will checkout the QA branch
+          fetch-depth: 0  # Fetch all history for all branches
+      
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+      
+      - name: Sync QA to Preprod
+        run: |
+          echo "Syncing QA branch to Preprod..."
+          git checkout preprod
+          git pull origin preprod
+          git pull origin qa
+          git push origin preprod
       
       - name: Install Node.js
         uses: actions/setup-node@v3
