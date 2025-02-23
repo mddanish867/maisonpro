@@ -1,1 +1,22 @@
-name Dev
+name: Dev Deployment
+
+on:
+  push:
+    branches:     
+    - main   # Trigger on push to the `dev` branch
+
+jobs:
+  deploy-to-dev:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Deploy to Dev
+        run: |
+          echo "Deploying to Dev environment..."
+          vercel --token ${{ secrets.VERCEL_TOKEN }} --prod 
