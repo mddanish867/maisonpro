@@ -1,9 +1,17 @@
 name: Pre-production Deployment
 
 on:
+  # Add workflow_dispatch to enable manual triggers
+  workflow_dispatch:
+    inputs:
+      deploy_message:
+        description: 'Deployment message'
+        required: false
+        default: 'Manual deployment to preprod'
+  # Keep existing push trigger
   push:
     branches:
-      - preprod  # Trigger on push to the `preprod` branch
+      - preprod
 
 jobs:
   deploy-to-preprod:
@@ -12,6 +20,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: qa  # This will checkout the QA branch
       
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -30,4 +40,5 @@ jobs:
       - name: Deploy to Pre-production
         run: |
           echo "Deploying to Pre-production environment..."
+          echo "Deployment message: ${{ github.event.inputs.deploy_message || 'Push triggered deployment' }}"
           vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
