@@ -2,7 +2,8 @@ name: Dev Deployment
 
 on:
   push:
-    branches: [ development ]  # Trigger on push to the `dev` branch
+    branches:     
+    - development   # Trigger on push to the `dev` branch
 
 jobs:
   deploy-to-dev:
@@ -18,4 +19,4 @@ jobs:
       - name: Deploy to Dev
         run: |
           echo "Deploying to Dev environment..."
-          vercel --token ${{ secrets.VERCEL_TOKEN }} --dev
+          vercel --token ${{ secrets.VERCEL_TOKEN }} --development
