@@ -87,7 +87,7 @@ const Navbar = () => {
                 onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
                 className="bg-gradient-to-r from-purple-400 to-yellow-300 text-blue-800 flex items-center gap-2 p-2  rounded-full"
               >
-                {/* {displayUserAvatar()} */}DA
+                {/* {displayUserAvatar()} */}MD
               </button>
               {isUserDropdownOpen && (
                 <UserDropdown
