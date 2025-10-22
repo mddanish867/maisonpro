@@ -18,13 +18,13 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      alert("Login successful");
-    }, 2000);
+      window.location.href = "/create-org";
+    }, 1000);
   };
 
   const handleOAuthLogin = (provider) => {
