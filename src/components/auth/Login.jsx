@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowUpRight, Eye, EyeOff, Github } from "lucide-react";
+import { ArrowUpRight, Eye, EyeOff, Github, Gitlab, GitBranch, GitBranchPlus } from "lucide-react";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -32,10 +32,10 @@ const Login = () => {
   };
 
   const oauthProviders = [
-    { name: "Azure", color: "from-blue-500 to-blue-600", icon: "M" },
+    { name: "Azure", color: "from-blue-500 to-blue-600", icon: <GitBranchPlus className="w-5 h-5" /> },
     { name: "GitHub", color: "from-gray-700 to-gray-800", icon: <Github className="w-5 h-5" /> },
-    { name: "Bitbucket", color: "from-blue-600 to-blue-700", icon: "B" },
-    { name: "GitLab", color: "from-orange-500 to-orange-600", icon: "G" },
+    { name: "Bitbucket", color: "from-blue-600 to-blue-700", icon: <GitBranch className="w-5 h-5"/> },
+    { name: "GitLab", color: "from-orange-500 to-orange-600", icon: <Gitlab className="w-5 h-5"/> },
   ];
 
   return (
