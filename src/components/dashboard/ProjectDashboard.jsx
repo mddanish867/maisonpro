@@ -61,7 +61,7 @@ const ProjectDashboard = () => {
             <div className="flex items-center">
             <a href="/">
               <span className="text-2xl font-semibold tracking-widest bg-gradient-to-r from-purple-400 to-yellow-300 bg-clip-text text-transparent">
-                SOORAPRO<span className="text-violet-400">°</span>
+                PaperBrain<span className="text-violet-400">°</span>
               </span>
             </a>
           </div>

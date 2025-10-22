@@ -49,7 +49,7 @@ const NovaPro = () => {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-extralight leading-relaxed mb-12">
-              AutoDocGen uses advanced AI to automatically generate comprehensive, professional documentation from your GitHub, BitBucket, GitLab, and Azure repositories. Save weeks of manual work with intelligent code analysis and beautiful formatting.
+              PaperBrain uses advanced AI to automatically generate comprehensive, professional documentation from your GitHub, BitBucket, GitLab, and Azure repositories. Save weeks of manual work with intelligent code analysis and beautiful formatting.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <button

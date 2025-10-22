@@ -7,10 +7,10 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
             <div className="text-2xl font-extralight tracking-widest mb-6">
-              SOORAPRO<span className="text-violet-400">°</span>
+              PaperBrain<span className="text-violet-400">°</span>
             </div>
             <div className="text-sm text-gray-400 font-extralight">
-              © {new Date().getFullYear()} SOORAPRO. All rights reserved.
+              © {new Date().getFullYear()} PaperBrain. All rights reserved.
             </div>
           </div>
         </div>
