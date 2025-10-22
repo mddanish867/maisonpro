@@ -38,18 +38,18 @@ const NovaPro = () => {
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-block mb-8 px-4 border border-white/10 rounded-full backdrop-blur-sm">
               <span className="text-sm font-extralight tracking-widest bg-gradient-to-r from-purple-400 to-yellow-300 bg-clip-text text-transparent">
-                AI-POWERED CODE ASSISTANT
+                AI-Powered Documentation Generator
               </span>
             </div>
             <h1 className="text-5xl md:text-7xl font-thin tracking-tight mb-8">
-              Transform Your
-              <span className="block mt-2 font-light bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
-                Code Quality
+              Transform Your <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Code</span>
+              <br/>Into
+               <span className="mx-2 bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+                 Documentation
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-extralight leading-relaxed mb-12">
-              Generate comprehensive documentation, test cases, and code improvements automatically. 
-              Built for modern development teams and ambitious projects.
+              AutoDocGen uses advanced AI to automatically generate comprehensive, professional documentation from your GitHub, BitBucket, GitLab, and Azure repositories. Save weeks of manual work with intelligent code analysis and beautiful formatting.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <button
